@@ -62,3 +62,11 @@ if [ "$branch_option" == "y" ]; then
 else
   echo -e "${YELLOW} Skipped branch switch/creation${NC}"
 fi
+
+read -p " Do you want to view the Git log? (y/n): " view_log 
+if [ "$view_log" == "y" ]; then
+  echo -e "${YELLOW} Git Commit History:${NC}" 
+  git log --oneline --graph --decorate --all
+else
+  echo -e "${YELLOW} Skipped Git log viewer.${NC}" 
+fi
